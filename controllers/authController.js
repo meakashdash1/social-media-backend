@@ -1,7 +1,11 @@
 import { MongoClient, ObjectId } from "mongodb"
 import {hashPassword} from '../service/bcryptService.js'
 import jwt from 'jsonwebtoken';
-const client=new MongoClient("mongodb+srv://aradhanatripathy92:Aeadhana00@cluster0.sd3ozlo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+import dotenv from 'dotenv'
+
+dotenv.config();
+
+const client=new MongoClient(process.env.MONGODB_URI)
 export const createUser=async(req,res)=>{
     try {
         const {name,password,email}=req.body

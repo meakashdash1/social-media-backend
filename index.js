@@ -1,6 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 import authRouter from './router/authRouter.js';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const app=express();
 
@@ -15,6 +18,6 @@ routes.forEach((route)=>{
     app.use(route)
 })
 
-app.listen(8000,()=>{
-    console.log(`Server listens at port 8000`)
+app.listen(process.env.PORT,()=>{
+    console.log(`Server listens at port ${process.env.PORT}`)
 })
