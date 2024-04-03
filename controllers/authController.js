@@ -48,7 +48,7 @@ export const createUser=async(req,res)=>{
 
 export const deleteUser=async(req,res)=>{
     try {
-        console.log("User Deleted")
+        console.log(req.body.user)
     } catch (error) {
         return res.json(
             {
