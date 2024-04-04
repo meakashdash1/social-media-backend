@@ -8,7 +8,7 @@ export const requireSignIn=(req,res,next)=>{
                 message:"Token Unavailable"
             })
         }
-        const decode=jwt.verify(token,'djkjskks')
+        const decode=jwt.verify(token,process.env.SECRET_KEY)
         console.log(decode)
         if(!decode){
             return res.json({
