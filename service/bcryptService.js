@@ -15,3 +15,14 @@ export const hashPassword=(password)=>{
         })
     })
 }
+
+export const comparePassword=(password,hashedPassword)=>{
+    return new Promise((resolve,reject)=>{
+        bcrypt.compare(password,hashedPassword,(error,result)=>{
+            if(error){
+                reject(error)
+            }
+            resolve(result)
+        })
+    })
+}
